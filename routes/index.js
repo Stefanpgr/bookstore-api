@@ -5,9 +5,19 @@ const bookData = require('../data/db.json')
 
 const Router = express.Router()
 
-Router.get('/', async (req, res) => {
+Router.get('/books', async (req, res) => {
   try {
     ResMsg(res,200,'success', "successfull", bookData)
+  } catch (error) {
+    console.log(error)
+    ResMsg(res,400,'error', "fail", error)
+  }
+   
+  
+})
+Router.get('/', async (req, res) => {
+  try {
+    ResMsg(res,200,'success', "successfull", "welcome")
   } catch (error) {
     console.log(error)
     ResMsg(res,400,'error', "fail", error)
